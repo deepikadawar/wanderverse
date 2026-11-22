@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Planner - WanderVerse</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<header>
+  <h1>WanderVerse</h1>
+  <p>Explore the world, one place at a time!</p>
+  <nav><a href="index.html">Home</a> | <a href="destinations.html">Destinations</a> | <a href="guide.html">Travel Guide</a> | <a href="planner.html">Trip Planner</a> | <a href="journal.html">Journal</a> | <a href="contact.html">Contact</a></nav>
+</header>
+<main>
+
+<h2>Plan Your Trip</h2>
+<p>Fill out this practice form to make a simple travel plan. It does not make a real booking.</p>
+<form id="tripForm">
+<fieldset><legend>Personal Details</legend>
+<label>Your Name: <input type="text" name="name" required></label><br>
+<label>Email: <input type="email" name="email" required></label>
+</fieldset>
+<fieldset><legend>Trip Details</legend>
+<label>Destination: <select name="destination"><option>Bali</option><option>Japan</option><option>Switzerland</option><option>Iceland</option></select></label><br>
+<label>Travel Date: <input type="date" name="date" required></label><br>
+<label>Number of Travellers: <input type="number" name="people" min="1" value="1"></label>
+<p>Budget:</p><label><input type="radio" name="budget" value="Budget" checked> Budget</label>
+<label><input type="radio" name="budget" value="Standard"> Standard</label>
+<label><input type="radio" name="budget" value="Luxury"> Luxury</label>
+<p>Interests:</p><label><input type="checkbox" name="interest" value="Nature"> Nature</label>
+<label><input type="checkbox" name="interest" value="Food"> Food</label>
+<label><input type="checkbox" name="interest" value="Culture"> Culture</label><br>
+<label>Extra Notes:<br><textarea name="notes" rows="3" cols="40"></textarea></label>
+</fieldset>
+<button type="submit">Show My Plan</button> <button type="reset">Clear</button>
+</form>
+<div id="result" aria-live="polite"></div>
+<script>
+document.getElementById("tripForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const data = new FormData(this);
+  const interests = data.getAll("interest").join(", ") || "None selected";
+  const result = document.getElementById("result");
+  result.replaceChildren();
+  const heading = document.createElement("h3");
+  heading.textContent = "Your Trip Plan";
+  result.appendChild(heading);
+  ["Name: " + data.get("name"), "Destination: " + data.get("destination"),
+   "Travel Date: " + data.get("date"), "Travellers: " + data.get("people"),
+   "Budget: " + data.get("budget"), "Interests: " + interests,
+   "Notes: " + (data.get("notes") || "None")].forEach(function(line) {
+     const p = document.createElement("p"); p.textContent = line; result.appendChild(p);
+   });
+});
+</script>
+
+</main>
+<footer><p>WanderVerse | HTML &amp; CSS College Project | <a href="contact.html">Contact Us</a></p></footer>
+</body>
+</html>

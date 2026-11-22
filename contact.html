@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - WanderVerse</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<header>
+  <h1>WanderVerse</h1>
+  <p>Explore the world, one place at a time!</p>
+  <nav><a href="index.html">Home</a> | <a href="destinations.html">Destinations</a> | <a href="guide.html">Travel Guide</a> | <a href="planner.html">Trip Planner</a> | <a href="journal.html">Journal</a> | <a href="contact.html">Contact</a></nav>
+</header>
+<main>
+
+<h2>Contact and Feedback</h2>
+<p>Have a suggestion for WanderVerse? Fill in this practice feedback form.</p>
+<form id="feedbackForm">
+<label>Name: <input type="text" name="name" required></label><br>
+<label>Email: <input type="email" name="email" required></label><br>
+<label>Rate our website:
+<select name="rating"><option>Excellent</option><option>Good</option><option>Average</option></select></label><br>
+<label>Feedback:<br><textarea name="feedback" rows="5" cols="45" required></textarea></label><br>
+<button type="submit">Submit Feedback</button>
+</form>
+<p id="feedbackMessage" aria-live="polite"></p>
+<p>Email: <a href="mailto:hello@example.com">hello@example.com</a> (example address)</p>
+<p>Learn more about travel at <a href="https://www.wikivoyage.org/" target="_blank" rel="noopener noreferrer">Wikivoyage</a>.</p>
+<script>
+document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+ event.preventDefault();
+ document.getElementById("feedbackMessage").textContent =
+   "Thank you! This is a demonstration form, so your feedback has not been sent.";
+ this.reset();
+});
+</script>
+
+</main>
+<footer><p>WanderVerse | HTML &amp; CSS College Project | <a href="contact.html">Contact Us</a></p></footer>
+</body>
+</html>

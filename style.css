@@ -1,0 +1,43 @@
+/* Basic external CSS used on every page */
+body { font-family: Arial, sans-serif; background: #f5f9fc; color: #222; margin: 0; line-height: 1.6; }
+header { background: #b9e1f5; text-align: center; padding: 16px; }
+header h1 { margin: 0; color: #124e70; }
+header p { margin: 4px 0 12px; }
+nav { background: #e5f4fb; padding: 10px; }
+nav a { color: #124e70; text-decoration: none; margin: 0 7px; display: inline-block; }
+nav a:hover { text-decoration: underline; }
+main { max-width: 950px; margin: 20px auto; padding: 0 16px; min-height: 55vh; }
+h2 { color: #17658c; border-bottom: 2px solid #b9e1f5; }
+h3 { color: #17658c; }
+img { max-width: 100%; }
+.banner { width: 100%; max-height: 300px; object-fit: cover; border: 1px solid #ccc; }
+.cards { display: flex; flex-wrap: wrap; gap: 16px; }
+.card { background: white; border: 1px solid #ccc; padding: 12px; width: 240px; }
+.card img { width: 100%; height: 155px; object-fit: cover; }
+table { border-collapse: collapse; width: 100%; background: white; }
+th, td { border: 1px solid #888; padding: 9px; text-align: left; }
+th { background: #d9eef8; }
+input, select, textarea, button { padding: 7px; margin: 5px 0; max-width: 100%; }
+fieldset { margin-bottom: 14px; border: 1px solid #aaa; background: white; }
+button { background: #ccebf9; border: 1px solid #777; cursor: pointer; }
+footer { text-align: center; background: #d9eef8; padding: 10px; margin-top: 30px; }
+::selection { background: #ffdf7d; color: #222; }
+/* Simple animated underline */
+.underline { display: inline-block; border-bottom: 2px solid #17658c; animation: grow 2s ease-in-out infinite alternate; }
+@keyframes grow { from { border-bottom-color: transparent; } to { border-bottom-color: #17658c; } }
+/* Bouncing loader from the lab */
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #17658c; margin: 4px; animation: bounce .8s infinite alternate; }
+.dot:nth-child(2) { animation-delay: .2s; } .dot:nth-child(3) { animation-delay: .4s; }
+@keyframes bounce { to { transform: translateY(-10px); } }
+/* Image overlay exercise */
+.photo-box { position: relative; display: inline-block; max-width: 360px; }
+.photo-box img { display: block; width: 100%; }
+.overlay { position: absolute; bottom: 0; background: #0009; color: white; width: 100%; text-align: center; opacity: 0; transition: opacity .3s; }
+.photo-box:hover .overlay { opacity: 1; }
+/* Polka dot exercise */
+.polka { background-color: #fff6dc; background-image: radial-gradient(#e2b85d 2px, transparent 3px); background-size: 20px 20px; padding: 16px; }
+/* Scroll snapping exercise */
+.scroll-gallery { display: flex; overflow-x: auto; gap: 12px; scroll-snap-type: x mandatory; padding: 10px 0; }
+.scroll-gallery img { width: 260px; height: 170px; object-fit: cover; flex: 0 0 auto; scroll-snap-align: start; }
+aside { background: #fff4d6; padding: 12px; border-left: 4px solid #d6a43b; }
+@media (max-width: 600px) { .card { width: 100%; } nav a { margin: 3px; } }
